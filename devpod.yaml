@@ -1,0 +1,8 @@
+workspace:
+  name: python-devpod-workspace
+  provider:
+    name: docker
+    options:
+      image: python-devpod-image
+      ports:
+        - "8080:80"
