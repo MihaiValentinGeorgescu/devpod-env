@@ -1,8 +1,12 @@
 workspace:
   name: python-devpod-workspace
   provider:
-    name: docker
+    name: kubernetes
     options:
-      image: python-devpod-image
-      ports:
-        - "8080:80"
+      podTemplate:
+        volumes:
+          - name: tmp-volume
+            emptyDir: {}
+        volumeMounts:
+          - name: tmp-volume
+            mountPath: /tmp
