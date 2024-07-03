@@ -1,12 +1,12 @@
 {
     "name": "Python Dev Container",
     "dockerFile": "Dockerfile",
-    "context": "..",
     "appPort": [80],
-    "workspaceFolder": "/workspace",
-    "remoteUser": "vscode",
     "extensions": [
       "ms-python.python"
-    ]
+    ],
+    "settings": {
+      "terminal.integrated.shell.linux": "/bin/bash"
+    }
   }
   
