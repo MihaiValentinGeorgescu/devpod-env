@@ -1,12 +1,17 @@
-workspace:
-  name: python-devpod-workspace
-  provider:
-    name: kubernetes
-    options:
-      podTemplate:
-        volumes:
-          - name: tmp-volume
-            emptyDir: {}
-        volumeMounts:
-          - name: tmp-volume
-            mountPath: /tmp
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-devpod
+spec:
+  containers:
+    - name: my-devpod-container
+      image: my-devpod-image  # Replace with your Docker image name
+      volumeMounts:
+        - name: kube-config
+          mountPath: /home/$USER/.kube/config  # Mount your kubeconfig file
+          subPath: config  # Adjust based on your kubeconfig file name
+      # Add additional volume mounts or environment variables as needed
+  volumes:
+    - name: kube-config
+      hostPath:
+        path: C:\Users\mihai\.kube  # Path to your .kube directory on Windows
